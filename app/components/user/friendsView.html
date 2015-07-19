@@ -1,0 +1,83 @@
+<script src="components/user/userController.js"></script>
+<script src="components/user/userService.js"></script>
+<div ng-controller="userCtrl">
+   <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 widthPage-12">
+         <div class="headerPage">
+            <div class="header-user-wrap">
+               <img class="banner-user" src="{{userinfo.cover}}">
+               <div class="user-info">
+                  <img class="avatar-user" src="{{userinfo.avatar}}" alt="{{userinfo.username}}">
+                  <div class="user-content">
+                     <div class="namePg">
+                        <h3>{{userinfo.fullname}}</h3>
+                     </div>
+                     <ul class="linkFoll">
+                        <li><a href="#">{{userinfo.total_writer}} Bài viết</a></li>
+                        <li><a href="#">{{userinfo.total_following}} Following</a></li>
+                        <li><a href="#">{{userinfo.total_follower}} Follower</a></li>
+                     </ul>
+                  </div>
+                  <button type="button" class="btn btn-default btn-Posts"><i class="fa fa-pencil-square-o"></i> Bài Viết</button>
+                  <ul class="list-inline list-info titlePage">
+                     <li><a href="user/{{username}}">Tường</a></li>
+                     <li><a href="/me-topic">Chủ đề cá nhân</a></li>
+                     <li><a href="/me-friends">Follow</a></li>
+                     <li><a href="/me-info">Thông tin</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+     <!-- <h3>Friends</h3> -->
+     <div class="tabbable tab-follows">
+         <ul class="nav nav-tabs tabs-follow border-radius-top">
+             <li class=""><a href="#blone" data-toggle="tab" aria-expanded="false">Following</a></li>
+             <li class="active"><a href="#bltwo" data-toggle="tab" aria-expanded="true">Follower</a></li>
+         </ul>
+
+         <div class="tab-content border-radius-bottom">
+             <div class="tab-pane" id="blone">
+                 <ul class="follow">
+                     <li> 
+                         <div class="media postContent "><a class="pull-left" href="#"> <img class="media-object ng-scope" src="http://static.onclan.com/a-photos/20131220/rd-1/529df1aa31c27cc0dc7988a4_52b46864479c1968098b45df_n.jpg"></a> 
+                         <div class="media-body"> <h6 class="media-heading"><a class="ng-binding" href="#">Do Tuan Anh</a> </h6> <small class="followers ng-binding">1536 followers</small> </div>
+                         <div class="ng-scope"> <span> <a class="navicon addFollowing ng-scope" href="#"> <i></i><span>Following</span> </a></span> </div></div> 
+                     </li>
+                     <li> 
+                         <div class="media postContent "><a class="pull-left" href="#"> <img class="media-object ng-scope" src="http://static.onclan.com/a-photos/20131204/rd-2/529eb75d31c27cc0dc7b6018_529edb01479c196b5b8b4583_n.jpg"></a> 
+                         <div class="media-body"> <h6 class="media-heading"><a class="ng-binding" href="#">Do Tuan Anh</a> </h6> <small class="followers ng-binding">1536 followers</small> </div>
+                         <div class="ng-scope"> <span> <a class="navicon addFollowing ng-scope" href="#"> <i></i><span>Following</span> </a></span> </div></div> 
+                     </li>
+                     <li> 
+                         <div class="media postContent "><a class="pull-left" href="#"> <img class="media-object ng-scope" src="http://static.onclan.com/a-photos/20150503/rd-8/12915652_5545edf74945a69c738b456b_n.jpg"></a> 
+                         <div class="media-body"> <h6 class="media-heading"><a class="ng-binding" href="#">Vũ Tiến Biên</a> </h6> <small class="followers ng-binding">1536 followers</small> </div>
+                         <div class="ng-scope"> <span> <a class="navicon addFollowing ng-scope" href="#"> <i></i><span>Following</span> </a></span> </div></div> 
+                     </li>
+                 </ul>
+             </div>
+             <div class="tab-pane active" id="bltwo">
+                 <ul class="follow follower">
+                     <li> 
+                         <div class="media postContent "><a class="pull-left" href="#"> <img class="media-object ng-scope" src="http://static.onclan.com/a-photos/20131220/rd-1/529df1aa31c27cc0dc7988a4_52b46864479c1968098b45df_n.jpg"></a> 
+                         <div class="media-body"> <h6 class="media-heading"><a class="ng-binding" href="#">Do Tuan Anh</a> </h6> <small class="followers ng-binding">1536 followers</small> </div>
+                         <div class="ng-scope"> <span> <a class="navicon addFollowing ng-scope" href="#"> <i></i><span>Following</span> </a></span> </div></div> 
+                     </li>
+                     <li> 
+                         <div class="media postContent "><a class="pull-left" href="#"> <img class="media-object ng-scope" src="http://static.onclan.com/a-photos/20131204/rd-2/529eb75d31c27cc0dc7b6018_529edb01479c196b5b8b4583_n.jpg"></a> 
+                         <div class="media-body"> <h6 class="media-heading"><a class="ng-binding" href="#">Triệu quang trường</a> </h6> <small class="followers ng-binding">1536 followers</small> </div>
+                         <div class="ng-scope"> <span> <a class="navicon addFollowing ng-scope" href="#"> <i></i><span>Following</span> </a></span> </div></div> 
+                     </li>
+                     <li> 
+                         <div class="media postContent "><a class="pull-left" href="#"> <img class="media-object ng-scope" src="http://static.onclan.com/a-photos/20150426/rd-4/553cc023424e886a420f6d65_553cc0494945a6257b8b4577_n.jpg"></a> 
+                         <div class="media-body"> <h6 class="media-heading"><a class="ng-binding" href="#">Nguyễn hoàng anh</a> </h6> <small class="followers ng-binding">1536 followers</small> </div>
+                         <div class="ng-scope"> <span> <a class="navicon addFollowing ng-scope" href="#"> <i></i><span>Following</span> </a></span> </div></div> 
+                     </li>
+                 </ul>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>

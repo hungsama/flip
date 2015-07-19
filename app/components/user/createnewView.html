@@ -1,0 +1,56 @@
+<script src="components/user/userController.js"></script>
+<script src="components/user/userService.js"></script>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 width-12">
+        <div class="background-wrap row">
+          <input type="text" placeholder="Tiêu đề..." name="text" class="form-control">
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 width-12">
+        <div class="background-wrap row">
+          <!-- <form action="" method="post"> -->
+            <textarea ckeditor="option" ng-model="abc"></textarea>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 width-12">
+        <div class="background-wrap row">
+          <h5 class="title">Ảnh nội dung</h5>
+          <form action="" method="post">
+            <span class="file-upload">
+              <input type="file" multiple="" name="files[]" id="fileupload">
+            </span>
+          </form>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="background-wrap row">
+          <h5 class="title bg-gray">Chọn nhóm hiển thị</h5>
+          <ul class="choose list-inline">
+           <li class="item">
+              <div>
+               <label for="el02">Only me</label>
+                <input type="checkbox" id="el02">
+              </div>
+            </li>
+            <li class="item">
+              <div>
+               <label for="el02">Public</label>
+                <input type="checkbox" id="el02">
+              </div>
+            </li>
+            <li class="item">
+              <div>
+               <label for="el02">Group friend</label>
+                <input type="checkbox" id="el02">
+              </div>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 button-create">
+        <input type="submit" value="Đăng" class="btnpost">
+        <input type="submit" value="Hủy" class="btnclose">
+    </div>
+</div>

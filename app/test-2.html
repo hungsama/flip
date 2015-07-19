@@ -1,0 +1,27 @@
+<script src="components/home/test2Controller.js"></script>
+<script src="components/home/testService.js"></script>
+<div ng-controller="P2Ctrl">
+    {{content}} <a href="/">Click</a>
+    <div class="row">aa
+   <div class="main-topic">
+      <div class="topicBox" ng-repeat="(key, topic) in listTopics">
+         <h2 class="topic-title">{{topic.title}}</h2>
+         <div class="col-xs-6 col-sm-4 col-md-3" ng-repeat="(k, article) in topic.listArticles">
+            <div class="panel-topic">
+               <div class="panel panel-default">
+                  <div class="panel-body">
+                     <a href="#" title="" class="zoom">
+                     <img ng-src="{{article.thumb}}" alt="{{article.title}}" />
+                     </a>
+                  </div>
+                  <div class="panel-footer">
+                     <h4><a href="#" title="">{{article.title}}</a></h4>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <h4 class="more-topic"><a href="#">xem thêm...</a></h4>
+      </div>
+   </div>
+</div>
+</div>

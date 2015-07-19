@@ -1,0 +1,157 @@
+<script type="text/javascript" src="components/topic/topicController.js"></script>
+<div class="row" ng-controller="topicCtrl">
+   <div class="col-xs-12 col-sm-12 col-md-8 width-12" infinite-scroll='loadMoreListArticles()' infinite-scroll-distance='0'>
+      <div class="box-timeline">
+         <ul class="box-jumbotron">
+            <li ng-repeat="(key, article) in mainArticles">
+               <div class="hidden-xs col-sm-2 width-2 hidenMargin">
+                  <a href="#">
+                  <img src="assets/images/avatar-timeline.png" class="img-rounded img-responsive" alt="Rounded Image"></a>
+                  <i class="fa fa-caret-right fa-2x"></i>
+               </div>
+               <div class="col-xs-12 col-sm-10 width-10 hidenMargin" ng-mouseover="hoveractive(article._id)" ng-mouseleave="hovedeactive(article._id)">
+                  <div class="jumbotron shownews">
+                     <div class="thumbnail">
+                        <a href="#">
+                        <img ng-src="{{article.thumb}}" alt="" class="img-responsive" /></a>
+                     </div>
+                     <div class="caption captionNews">
+                        <h3><a href="/article/{{article._id}}">{{article.title}}</p>
+                     </div>
+                     <div class="row groupLike">
+                        <ul class="stream-item-footer col-xs-9 col-sm-7">
+                           <li><a href="#">thích</a></li>
+                           <li><a href="#">bình luận</a></li>
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">{{article.total_likes}}</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">{{article.total_comments}}</span></li>
+                        </ul>
+                        <ul class="iconShare col-xs-3 col-sm-5">
+                           <span class="pull-right">
+                              <li><a href="#" alt="" title="share"><i class="fa fa-share-alt"></i></a></li>
+                              <li><a href="#" alt="" title="plus"><i class="fa fa-plus-square"></i></a></li>
+                           </span>
+                        </ul>
+                     </div>
+                  </div>
+                  <ul id="list-drop-{{article._id}}" class="list-news">
+                     <div class="panelHeading">
+                        <h4>Bài liên quan</h4>
+                     </div>
+                     <li>
+                        <a href="#">
+                        <img class="imgPosts pull-left" src="assets/images/news-siderbar/hop-den.jpg" alt=""></a>
+                        <div class="txtNews">
+                           <h4><a href="#">Malaysia Airlines thừa nhận sai sót về pin hộp đen MH370</a></h4>
+                           <button type="button" class="btn btn-default btn-sm likebtn"><i class="fa fa-thumbs-up"></i>Thích</button>
+                        </div>
+                     </li>
+                     <li>
+                        <a href="#">
+                        <img class="imgPosts pull-left" src="assets/images/news-siderbar/watcccc.jpg" alt=""></a>
+                        <div class="txtNews">
+                           <h4><a href="#">Tường thuật trực tiếp sự kiện Spring Foward của Apple</a></h4>
+                           <button type="button" class="btn btn-default btn-sm likebtn"><i class="fa fa-thumbs-up"></i>Thích</button>
+                        </div>
+                     </li>
+                     <li>
+                        <a href="#">
+                        <img class="imgPosts pull-left" src="assets/images/news-siderbar/my.jpg" alt=""></a>
+                        <div class="txtNews">
+                           <h4><a href="#">Mỹ đưa vũ khí hạng nặng tới các nước Baltic</a></h4>
+                           <button type="button" class="btn btn-default btn-sm likebtn"><i class="fa fa-thumbs-up"></i>Thích</button>
+                        </div>
+                     </li>
+                  </ul>
+
+               </div>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <div class="hidden-xs hidden-sm col-md-4 no-gutter">
+      <div class="tabbable">
+         <ul class="nav nav-tabs tabs-news">
+            <li ng-repeat="(key, tab) in listTabArticles" ng-class="{'active':tab.active}" ng-click="articlesLeft(tab.typeTop);">
+               <a href="" data-toggle="tab">{{tab.label}}</a>
+            </li>
+         </ul>
+         <div class="tab-content">
+            <div class="tab-pane active" id="one">
+               <ul class="media block-update-card">
+                  <li ng-repeat="(key, article) in topArticles">
+                     <a class="pull-left" href="#">
+                     <img class="media-object update-card-MDimentions" ng-src="{{article.thumb}}" alt="{{article.title}}">
+                     </a>
+                     <div class="media-body update-card-body">
+                        <h4 class="media-heading"><a href="/article/{{article._id}}">{{article.title}}</a></h4>
+                        <ul class="social-like">
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">{{article.total_likes}}</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">{{article.total_comments}}</span></li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li ng-if="topArticles == []">Không tồn tại bản ghi nào</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!-- /tabs -->
+      <div class="facebookOuter">
+         <div class="facebookInner">
+            <div class="fb-like-box" data-href="https://www.facebook.com/gaytusuongnet" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+         </div>
+      </div>
+      <div class="panel panel-primary kanban-col">
+         <div class="panel-heading">
+            <h4>Theo dõi nhiều nhất</h4>
+            <a href="#"><i class="fa fa-chevron-down pull-right"></i></a>
+         </div>
+         <div class="panel-body">
+            <div id="DONE" class="kanban-centered">
+               <article class="kanban-entry grab" id="item5" draggable="true">
+                  <div class="kanban-entry-inner">
+                     <ul class="media list-follower">
+                        <li>
+                           <a class="pull-left" href="#">
+                           <img class="img-rounded media-object update-card-MDimentions" src="../assets/images/follower-img/1.jpg" alt="">
+                           </a>
+                           <div class="media-body update-card-body">
+                              <h4 class="name_follower"><a href="#">Minh Minh</a></h4>
+                              <span class="countlike">237</span>
+                              <button type="button" class="btn btn-default btn-sm pull-right"><i class="fa fa-user-plus plusIcon"></i>Kết bạn</button>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </article>
+            </div>
+         </div>
+      </div>
+      <div class="panel panel-topic panel-primary kanban-col">
+         <div class="panel-heading">
+            <h4>Gợi ý chủ đề</h4>
+            <a href="#"><i class="fa fa-chevron-down pull-right"></i></a>
+         </div>
+         <div class="panel-body">
+            <div id="DONE" class="kanban-centered">
+               <div class="kanban-entry grab" id="item5" draggable="true">
+                  <div class="kanban-entry-inner">
+                     <div class="col-sm-6 col-md-6" ng-repeat="(key, topic) in suggestTopicsHome">
+                        <div class="panel panel-default">
+                           <div class="panel-body">
+                              <a href="#" title="Nature Portfolio" class="zoom" data-title="{{topic.title}}" data-footer="The beauty of nature" data-type="image" data-toggle="lightbox">
+                              <img ng-src="{{topic.thumb}}" alt="{{topic.title}}" />
+                              </a>
+                           </div>
+                           <div class="panel-footer">
+                              <h4><a href="#" title="Nature Portfolio">{{topic.title}}</a></h4>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

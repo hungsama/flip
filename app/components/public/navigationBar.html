@@ -1,0 +1,99 @@
+<div class="container containerCst">
+   <a class="hidden-xs col-sm-1 width-1 navbar-brand" href="/">
+   <img src="../assets/images/logo.png" class="img-responsive" alt=""></a>
+   <a id="btnSearch" class="HiddeSearch navbar-brand"><i class="fa fa-search"></i></a>
+   <ul class="searchDrop">
+      <input class="form-control inptCust" name="search" placeholder="Tìm kiếm..." autocomplete="off" autofocus="autofocus" type="text" id="search">
+   </ul>
+   <div class="hidden-xs col-sm-6 col-md-7 formDisl  no-gutter">
+      <form class="navbar-form">
+         <div class="form-group" style="display: inline;">
+            <div class="input-group" style="display: table;">
+               <div class="icon-addon addon-md" style="width: 100%;">
+                  <input class="form-control" name="search" placeholder="Tìm kiếm..." autocomplete="off" autofocus="autofocus" type="text" id="search">
+                  <label for="search" class="fa fa-search" rel="tooltip" title="search"></label>
+               </div>
+               <a href="#" class="input-group-addon dropdown-toggle" data-toggle="dropdown" style="width: 1%;">
+               <i class="fa fa-th-list"></i>
+               <i class="fa fa-caret-down"></i>
+               </a>
+               <ul class="dropdown-menu dropdownCust">
+                  <div class="col-sm-6 col-md-6" ng-repeat="(key, value) in categories">
+                     <!-- <li><a href="/topic/{{value._id}}">{{value.title}}</a></li> -->
+                     <li><a href="/topic/{{value.alias}}" ng-click="test(value);">{{value.title}}</a></li>
+                  </div>
+                  <div class="row">
+                     <div class="col-sm-12 col-md-12">
+                        <ul class="dropdw-footer">
+                           <li><a href="#">Giới thiệu</a></li>
+                           <li><a href="#">Điều khoản</a></li>
+                           <li><a href="#">Liên hệ</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </ul>
+            </div>
+         </div>
+      </form>
+   </div>
+   <div class="avatarHder pull-right">
+      <ul class="nav navbar-nav TxtNav">
+         <li id="follow">
+            <a href="/follows">Theo dõi</a>
+         </li>
+         <li id="topic">
+            <a href="/topic">Chủ đề</a>
+         </li>
+         <li id="topic">
+            <a href="#" ng-click="testx();">Test</a>
+         </li>
+         <li class="has-notification" ng-if="is_login">
+            <a href="javascript:;" ng-click="list_notice($event);"><i class="fa fa-bell-o"></i></a>
+            <div class="notification box-setting" id="show-list-notice">
+               <div class="header-notification"><h3>Notifications</h3></div>
+               <div class="body-notification">
+                  <ul class="list-notification">
+                     <li class="items">
+                        <a href="#" class="has-img"><img src="assets/images/news-1.jpg"></a>
+                        <div class="content-notification">
+                           <h4 class="title-notification"><a href="#">Bông hoa 8/3 giá trị bằng chiếc xe hơi</a></h4>
+                           <span class="date-time">2 hours ago</span>
+                        </div>
+                     </li>
+                     <li class="items">
+                        <a href="#" class="has-img"><img src="assets/images/news-siderbar/2.jpg"></a>
+                        <div class="content-notification">
+                           <h4 class="title-notification"><a href="#">HLV Miura: 'Olympic Việt Nam còn nhiều việc phải làm'</a></h4>
+                           <span class="date-time">2 hours ago</span>
+                        </div>
+                     </li>
+                     <li class="items last">
+                        <a href="#" class="has-img"><img src="assets/images/news-1.jpg"></a>
+                        <div class="content-notification">
+                           <h4 class="title-notification"><a href="#">Bông hoa 8/3 giá trị bằng chiếc xe hơi</a></h4>
+                           <span class="date-time"><i class="fa fa-clock-o"></i>2 hours ago</span>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+        </li>
+        <li class="settings_menu" ng-if="!is_login">
+            <a class="avatarmr" data-toggle="modal" data-target="#myModal">
+                <img src="../assets/images/avatar.png" class="img-circle imgAvatar" alt="Circular Image"></a>
+        </li>
+         <li class="settings_menu" ng-if="is_login">
+            <a class="avatarmr" data-toggle="modal">
+                <img src="../assets/images/avatar.png" class="img-circle imgAvatar" alt="Circular Image" ng-click="list_link($event);"></a>
+            <div class="setting-wrap box-setting" id="show-list-href">
+               <ul class="list-setting">
+                  <li class="items"><a href="/user/{{username}}"><i class="fa fa-home"></i>Tường</a></li>
+                  <li class="items"><a href="/me-topic"><i class="fa fa-dashboard"></i>Chủ đề cá nhân</a></li>
+                  <li class="items"><a href="/me-friends"><i class="fa fa-group"></i>Follow</a></li>
+                  <li class="items"><a href="/me-info"><i class="fa fa-info-circle"></i>Thông tin</a></li>
+                  <li class="items last"><a href="#" ng-click="logout();"><i class="fa fa-power-off"></i>Logout</a></li>
+               </ul>
+            </div>
+        </li>
+      </ul>
+   </div>

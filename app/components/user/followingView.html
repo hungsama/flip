@@ -1,0 +1,36 @@
+<script type="text/javascript" src="components/user/userController.js"></script>
+<script type="text/javascript" src="components/user/userService.js"></script>
+<div class="row" ng-controller="userCtrl">
+   <div class="main-topic">
+       <div class="topicBox">
+           <h2 class="topic-title">Chủ đề</h2>
+           <div class="col-xs-6 col-sm-4 col-md-3" ng-repeat="(key, value) in follows.topics">
+               <div class="panel-topic">
+                   <div class="panel panel-default">
+                       <div class="panel-body">
+                           <a class="zoom" title="" href="#">
+                               <img alt="" src="{{value.thumb}}">
+                           </a>
+                       </div>
+                       <div class="panel-footer">
+                           <h4><a title="" href="/topic/{{value.alias}}">{{value.title}}</a></h4>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <h4 class="more-topic"><a href="#">Xem thêm...</a></h4>
+       </div>
+   </div>
+   <div class="topicBox">
+        <h2 class="topic-title">Bạn bè</h2>
+        <div class="col-xs-6 col-sm-4 col-md-3" ng-repeat="(key, value) in follows.friends">
+            <div class="userItem">
+                <a href="/topic/{{value.alias}}" class="zoom"><img class="user-img" src="{{value.avatar}}" alt=""></a>
+                <div class="user-footer">
+                    <h4><a href="#">{{value.username}}</a></h4>
+                </div>
+            </div>
+        </div>
+        <h4 class="more-topic"><a href="#">xem thêm...</a></h4>
+    </div>
+</div>

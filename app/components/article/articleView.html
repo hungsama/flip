@@ -1,0 +1,379 @@
+<script type="text/javascript" src="components/article/articleController.js"></script>
+<script type="text/javascript" src="components/article/articleService.js"></script>
+<div class="row" ng-controller="artCtrl">
+   <div class="col-xs-12 col-sm-12 col-md-8 width-12">
+      <div class="box-timeline">
+         <ul class="box-jumbotron">
+            <li>
+               <div class="col-xs-12 col-sm-12 width-12 hidenMargin">
+                  <div class="jumbotron">
+                     <div class="img-user col-sm-2">
+                        <a href="#">
+                        <img src="assets/images/avatar-timeline-3.jpg" alt="" class="img-circle img-responsive                " /></a>
+                     </div>
+                     <div class="group-header col-sm-10">
+                        <div class="caption captionNews">
+                           <h3><a href="">{{detail.title}}</a></h3>
+                        </div>
+                        <ul class="meta list-inline">
+                           <li class="date">Ngày {{detail.time_create | date:'dd-MM-yyyy'}}</li>
+                           <li class="view-count"><span class="number">{{detail.total_views}}</span>lượt xem</li>
+                           <li class="rating-count"><span class="number">{{detail.total_rates}}</span>rating</li>
+                        </ul>
+                        <ul class="create list-inline">
+                           <li class="">viết bởi</li>
+                           <li class="author"><a href="#">{{detail.user_id}}</a></li>
+                        </ul>
+                     </div>
+                     <div class="groupShare">
+                        <div class="col-sm-12">
+                           <span class="pull-left label">Chia sẻ bài viết</span>
+                           <ul class="list-inline pull-right social">
+                              <li><a class="facebook" href=""><i class="fa fa-facebook"></i></i>Facebook</a></li>
+                              <li><a class="twitter" href=""><i class="fa fa-twitter"></i></i>Twitter</a></li>
+                              <li><a class="google_plus" href=""><i class="fa fa-google-plus"></i>Google plus</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="body-content">
+                        <div class="col-sm-12">
+                           {{detail.content}}
+                        </div>
+                     </div>
+                     <div class="groupShare">
+                        <div class="col-sm-12">
+                           <span class="pull-left label">Chia sẻ bài viết</span>
+                           <ul class="list-inline pull-right social">
+                              <li><a class="facebook" href=""><i class="fa fa-facebook"></i></i>Facebook</a></li>
+                              <li><a class="twitter" href=""><i class="fa fa-twitter"></i></i>Twitter</a></li>
+                              <li><a class="google_plus" href=""><i class="fa fa-google-plus"></i>Google plus</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </li>
+         </ul>
+      </div>
+      <div class="tabbable tab-comment">
+         <ul class="nav nav-tabs tabs-comment-header border-radius-top">
+            <li class="active"><a href="#blone" data-toggle="tab">Facebook</a></li>
+            <li><a href="#bltwo" data-toggle="tab">Bình luận từ trang</a></li>
+         </ul>
+         <!-- <div class="tab-content border-radius-bottom">
+            <div class="tab-pane active" id="blone">
+               <div data-colorscheme="light" data-numposts="5" data-width="600" data-href="http://www.htmlcodetutorial.com/frames/frames_tagsupp_20.html" class="fb-comments fb_iframe_widget" fb-xfbml-state="rendered"><span style="height: 180px; width: 600px;"><iframe id="f378ba7696f144a" name="f1efb90d7e95a28" scrolling="no" style="border: medium none; overflow: hidden; height: 180px; width: 600px;" title="Facebook Social Plugin" class="fb_ltr" src="https://www.facebook.com/plugins/comments.php?api_key=683645258395474&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2F6p3So0GhyQP.js%3Fversion%3D41%23cb%3Df46eb75385537a%26domain%3Dwww.htmlcodetutorial.com%26origin%3Dhttp%253A%252F%252Fwww.htmlcodetutorial.com%252Ff395df77b15d172%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Fwww.htmlcodetutorial.com%2Fframes%2Fframes_tagsupp_20.html&amp;locale=en_US&amp;numposts=5&amp;sdk=joey&amp;skin=light&amp;version=v2.0&amp;width=600"></iframe></span></div>
+            </div>
+            <div class="tab-pane" id="bltwo">
+               <div id="comments-container"></div>
+            </div>
+         </div> -->
+      </div>
+      <div class="related">
+         <ul class="list-news border-radius" id="list-drop" >
+            <div class="panelHeading">
+               <h4>Bài liên quan</h4>
+            </div>
+            <li ng-repeat="(key, value) in suggest_articles">
+               <a href="article/{{value._id}}">
+               <img alt="" src="{{value.thumb}}" class="imgPosts pull-left"></a>
+               <div class="txtNews">
+                  <h4><a href="article/{{value._id}}">{{value.title}}</a></h4>
+                  <div class="body-content">{{value.content | cut:true:200:' ...'}}</div>
+               </div>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <div class="hidden-xs hidden-sm col-md-4 no-gutter">
+      <div class="tabbable ">
+         <ul class="nav nav-tabs tabs-news border-radius-top">
+            <li class="active"><a href="#one" data-toggle="tab">Mới nhất</a></li>
+            <li><a href="#two" data-toggle="tab">Nhiều nhất</a></li>
+            <li><a href="#there" data-toggle="tab">Ngẫu nhiên</a></li>
+         </ul>
+         <div class="tab-content border-radius-bottom">
+            <div class="tab-pane active" id="one">
+               <ul class="media block-update-card">
+                  <li>
+                     <a class="pull-left" href="#">
+                     <img class="media-object update-card-MDimentions" src="assets/images/news-siderbar/hop-den.jpg" alt="">
+                     </a>
+                     <div class="media-body update-card-body">
+                        <h4 class="media-heading"><a href="#">Malaysia Airlines thừa nhận sai sót về pin hộp đen MH370</a></h4>
+                        <ul class="social-like">
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">237</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">137</span></li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li>
+                     <a class="pull-left" href="#">
+                     <img class="media-object update-card-MDimentions" src="assets/images/news-siderbar/watcccc.jpg" alt="">
+                     </a>
+                     <div class="media-body update-card-body">
+                        <h4 class="media-heading"><a href="#">Tường thuật trực tiếp sự kiện Spring Foward của Apple</a></h4>
+                        <ul class="social-like">
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">237</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">137</span></li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li>
+                     <a class="pull-left" href="#">
+                     <img class="media-object update-card-MDimentions" src="assets/images/news-siderbar/2.jpg" alt="">
+                     </a>
+                     <div class="media-body update-card-body">
+                        <h4 class="media-heading"><a href="#">HLV Miura: 'Olympic Việt Nam còn nhiều việc phải làm'</a></h4>
+                        <ul class="social-like">
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">237</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">137</span></li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li>
+                     <a class="pull-left" href="#">
+                     <img class="media-object update-card-MDimentions" src="assets/images/news-siderbar/my.jpg" alt="">
+                     </a>
+                     <div class="media-body update-card-body">
+                        <h4 class="media-heading"><a href="#">Mỹ đưa vũ khí hạng nặng tới các nước Baltic</a></h4>
+                        <ul class="social-like">
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">237</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">137</span></li>
+                        </ul>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+            <div class="tab-pane" id="two">
+               <ul class="media block-update-card">
+                  <li>
+                     <a class="pull-left" href="#">
+                     <img class="media-object update-card-MDimentions" src="assets/images/news-siderbar/2.jpg" alt="">
+                     </a>
+                     <div class="media-body update-card-body">
+                        <h4 class="media-heading"><a href="#">HLV Miura: 'Olympic Việt Nam còn nhiều việc phải làm'</a></h4>
+                        <ul class="social-like">
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">237</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">137</span></li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li>
+                     <a class="pull-left" href="#">
+                     <img class="media-object update-card-MDimentions" src="assets/images/news-siderbar/hop-den.jpg" alt="">
+                     </a>
+                     <div class="media-body update-card-body">
+                        <h4 class="media-heading"><a href="#">Malaysia Airlines thừa nhận sai sót về pin hộp đen MH370</a></h4>
+                        <ul class="social-like">
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">237</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">137</span></li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li>
+                     <a class="pull-left" href="#">
+                     <img class="media-object update-card-MDimentions" src="assets/images/news-siderbar/my.jpg" alt="">
+                     </a>
+                     <div class="media-body update-card-body">
+                        <h4 class="media-heading"><a href="#">Mỹ đưa vũ khí hạng nặng tới các nước Baltic</a></h4>
+                        <ul class="social-like">
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">237</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">137</span></li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li>
+                     <a class="pull-left" href="#">
+                     <img class="media-object update-card-MDimentions" src="assets/images/news-siderbar/watcccc.jpg" alt="">
+                     </a>
+                     <div class="media-body update-card-body">
+                        <h4 class="media-heading"><a href="#">Tường thuật trực tiếp sự kiện Spring Foward của Apple</a></h4>
+                        <ul class="social-like">
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">237</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">137</span></li>
+                        </ul>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+            <div class="tab-pane" id="there">
+               <ul class="media block-update-card">
+                  <li>
+                     <a class="pull-left" href="#">
+                     <img class="media-object update-card-MDimentions" src="assets/images/news-siderbar/watcccc.jpg" alt="">
+                     </a>
+                     <div class="media-body update-card-body">
+                        <h4 class="media-heading"><a href="#">Tường thuật trực tiếp sự kiện Spring Foward của Apple</a></h4>
+                        <ul class="social-like">
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">237</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">137</span></li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li>
+                     <a class="pull-left" href="#">
+                     <img class="media-object update-card-MDimentions" src="assets/images/news-siderbar/hop-den.jpg" alt="">
+                     </a>
+                     <div class="media-body update-card-body">
+                        <h4 class="media-heading"><a href="#">Malaysia Airlines thừa nhận sai sót về pin hộp đen MH370</a></h4>
+                        <ul class="social-like">
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">237</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">137</span></li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li>
+                     <a class="pull-left" href="#">
+                     <img class="media-object update-card-MDimentions" src="assets/images/news-siderbar/my.jpg" alt="">
+                     </a>
+                     <div class="media-body update-card-body">
+                        <h4 class="media-heading"><a href="#">Mỹ đưa vũ khí hạng nặng tới các nước Baltic</a></h4>
+                        <ul class="social-like">
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">237</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">137</span></li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li>
+                     <a class="pull-left" href="#">
+                     <img class="media-object update-card-MDimentions" src="assets/images/news-siderbar/2.jpg" alt="">
+                     </a>
+                     <div class="media-body update-card-body">
+                        <h4 class="media-heading"><a href="#">HLV Miura: 'Olympic Việt Nam còn nhiều việc phải làm'</a></h4>
+                        <ul class="social-like">
+                           <li><a href="#" title="thích"><i class="fa fa-thumbs-o-up"></i></a><span class="countlike">237</span></li>
+                           <li><a href="#" title="bình luận"><i class="fa fa-comment-o"></i></a><span class="countlike">137</span></li>
+                        </ul>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!-- /tabs -->
+      <div class="facebookOuter border-radius">
+         <div class="facebookInner ">
+            <div class="fb-like-box" data-href="https://www.facebook.com/gaytusuongnet" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+         </div>
+      </div>
+      <div class="panel panel-primary kanban-col border-radius">
+         <div class="panel-heading">
+            <h4>Theo dõi nhiều nhất</h4>
+            <a href="#"><i class="fa fa-chevron-down pull-right"></i></a>
+         </div>
+         <div class="panel-body">
+            <div id="DONE" class="kanban-centered">
+               <article class="kanban-entry grab" id="item5" draggable="true">
+                  <div class="kanban-entry-inner">
+                     <ul class="media list-follower">
+                        <li>
+                           <a class="pull-left" href="#">
+                           <img class="img-rounded media-object update-card-MDimentions" src="assets/images/follower-img/1.jpg" alt="">
+                           </a>
+                           <div class="media-body update-card-body">
+                              <h4 class="name_follower"><a href="#">Minh Minh</a></h4>
+                              <span class="countlike">237</span>
+                              <button type="button" class="btn btn-default btn-sm pull-right"><i class="fa fa-user-plus plusIcon"></i>Kết bạn</button>
+                           </div>
+                        </li>
+                        <li>
+                           <a class="pull-left" href="#">
+                           <img class="img-rounded media-object update-card-MDimentions" src="assets/images/follower-img/2.jpg" alt="">
+                           </a>
+                           <div class="media-body update-card-body">
+                              <h4 class="name_follower"><a href="#">Pe's Hien's</a></h4>
+                              <span class="countlike">237</span>
+                              <button type="button" class="btn btn-default btn-sm pull-right"><i class="fa fa-user-plus plusIcon"></i>Kết bạn</button>
+                           </div>
+                        </li>
+                        <li>
+                           <a class="pull-left" href="#">
+                           <img class="img-rounded media-object update-card-MDimentions" src="assets/images/follower-img/3.JPG" alt="">
+                           </a>
+                           <div class="media-body update-card-body">
+                              <h4 class="name_follower"><a href="#">Tuấn Nguyễn</a></h4>
+                              <span class="countlike">137</span>
+                              <button type="button" class="btn btn-default btn-sm pull-right"><i class="fa fa-user-plus plusIcon"></i>Kết bạn</button>
+                           </div>
+                        </li>
+                        <li>
+                           <a class="pull-left" href="#">
+                           <img class="img-rounded media-object update-card-MDimentions" src="assets/images/follower-img/4.jpg" alt="">
+                           </a>
+                           <div class="media-body update-card-body">
+                              <h4 class="name_follower"><a href="#">Đỗ Tuấn Anh</a></h4>
+                              <span class="countlike">237</span>
+                              <button type="button" class="btn btn-default btn-sm pull-right"><i class="fa fa-user-plus plusIcon"></i>Kết bạn</button>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </article>
+            </div>
+         </div>
+      </div>
+      <div class="panel panel-index panel-primary kanban-col border-radius">
+         <div class="panel-heading">
+            <h4>Gợi ý chủ đề</h4>
+            <a href="#"><i class="fa fa-chevron-down pull-right"></i></a>
+         </div>
+         <div class="panel-body">
+            <div id="DONE" class="kanban-centered">
+               <div class="kanban-entry grab" id="item5" draggable="true">
+                  <div class="kanban-entry-inner">
+                     <div class="col-sm-6 col-md-6">
+                        <div class="panel panel-default">
+                           <div class="panel-body">
+                              <a href="#" title="" class="zoom" >
+                              <img src="assets/images/topic-img/3.jpg" alt="" />
+                              </a>
+                           </div>
+                           <div class="panel-footer">
+                              <h4><a href="#" title="">Nghệ thuật</a></h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-sm-6 col-md-6">
+                        <div class="panel panel-default">
+                           <div class="panel-body">
+                              <a href="#" title="" class="zoom" >
+                              <img src="assets/images/topic-img/2.jpg" alt="" />
+                              </a>
+                           </div>
+                           <div class="panel-footer">
+                              <h4><a href="#" title="">Thể thao</a></h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-sm-6 col-md-6">
+                        <div class="panel panel-default">
+                           <div class="panel-body">
+                              <a href="#" title="" class="zoom" >
+                              <img src="assets/images/topic-img/8.jpg" />
+                              </a>
+                           </div>
+                           <div class="panel-footer">
+                              <h4><a href="#" title="">Công nghệ</a></h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-sm-6 col-md-6">
+                        <div class="panel panel-default">
+                           <div class="panel-body">
+                              <a href="#" title="" class="zoom" >
+                              <img src="assets/images/topic-img/5.jpg" alt="" />
+                              </a>
+                           </div>
+                           <div class="panel-footer">
+                              <h4><a href="#" title="">Giáo dục</a></h4>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

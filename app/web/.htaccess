@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(api\index\.php|(.*)\.swf|uploadify|application|system|assets|robots\.txt)
+RewriteRule ^(.*)$ /api/index.php?/$1 [L]
+AddType application/excel .xls .xlsx

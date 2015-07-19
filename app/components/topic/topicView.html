@@ -1,0 +1,24 @@
+<script type="text/javascript" src="components/topic/topicController.js"></script>
+<script type="text/javascript" src="components/topic/topicService.js"></script>
+<div class="row" ng-controller="topicCtrl">
+   <div class="main-topic">
+       <div class="topicBox">
+           <!-- <h2 class="topic-title">Chủ đề</h2> -->
+           <div class="col-xs-6 col-sm-4 col-md-3" ng-repeat="(key, value) in listTopics">
+               <div class="panel-topic">
+                   <div class="panel panel-default">
+                       <div class="panel-body">
+                           <a class="zoom" title="" href="#">
+                               <img alt="" src="{{value.thumb}}">
+                           </a>
+                       </div>
+                       <div class="panel-footer">
+                           <h4><a title="" href="/topic/{{value.alias}}">{{value.title}}</a></h4>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <h4 class="more-topic"><a href="#">xem thêm...</a></h4>
+       </div>
+   </div>
+</div>

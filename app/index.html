@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <title>Siêu phẩm còn ten</title>
+
+    <!-- Css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/font-awesome/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <!-- <script type="text/javascript" src="assets/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-comments.min.js"></script>
+    <script type="text/javascript" src="assets/js/comments-data.js"></script> -->
+    <!-- <script type="text/javascript" src="assets/js/custom.js"></script> -->
+    <!-- <script type="text/javascript">
+       jQuery(document).ready(function($) {
+          $.getScript('assets/js/custom.js');
+       });
+    </script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- HTML5 mode requires a <base> tag -->
+</head>
+<body ng-app="general">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-include="'components/user/formLogin.html'" scope="" onload="">
+    </div>
+
+    <!-- /Modal -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="navGeneral" ng-include="'components/public/navigationBar.html'">
+        <!-- /container-->
+    </nav>
+    <!-- /navbar-->
+
+    <div class="container" ng-view="">
+    </div>
+    <!-- /container -->
+    <script type="text/javascript"></script>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script type="text/javascript" src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src='assets/my-js/common.js'></script>
+
+    <!-- Source login -->
+    <!-- <script src="assets/my-js/fb-login.js"></script> -->
+    <!-- <script src="assets/my-js/gg-login.js"></script> -->
+
+    <!-- Begin import components library -->
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script type="text/javascript" src="bower_components/angular-infinite-scroll/ng-infinite-scroll.min.js"></script>
+    <script type="text/javascript" src="bower_components/ngstorage/ngStorage.min.js"></script>
+    <script type="text/javascript" src="bower_components/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="bower_components/ckeditor-angularjs/src/ckeditor-angularjs.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!-- End import components library -->
+
+    <!-- Begin import main -->
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="appService.js"></script>
+    <script type="text/javascript" src="testService.js"></script>
+    <script type="text/javascript" src="components/user/loginController.js"></script>
+    <script type="text/javascript" src="components/user/loginService.js"></script>
+    <!-- End import main -->
+</body>
+
+</html>

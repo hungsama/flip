@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="fr">
+    <meta charset="UTF-8">
+    <title>Exemple Ckeditor</title>
+</head>
+<body ng-app="Exemple">
+
+<div ng-controller="ExempleController">
+
+    <form>
+        <textarea ckeditor="option" name="test" ng-model="test"></textarea>
+        <p ng-bind-html="test"></p>
+    </form>
+
+</div>
+
+
+<script src="../bower_components/jquery/jquery.min.js"></script>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="MainController.js"></script>
+<script src="../bower_components/ckeditor/ckeditor.js"></script>
+<script src="../build/ckeditor-angularjs.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<div class="modal-dialog" ng-controller="loginCtrl">
+   <form class="form-signin mg-btm" name="loginForm">
+      <h3 class="heading-desc">
+         <button class="close" aria-label="Close" data-dismiss="modal" type="button">
+         <span aria-hidden="true">×</span>
+         </button>
+      </h3>
+      <div class="header-login">
+         <!-- <img src="../assets/images/login/login-header.png" class="img-responsive center-block" alt=""> -->
+      </div>
+      <div class="main">
+         <div class="icon-addon addon-md" style="width: 100%;">
+            <input class="form-control" name="search" placeholder="Tên đăng nhập" autocomplete="off" autofocus="autofocus" type="text" required ng-model="user.username">
+            <label for="user" class="fa fa-user" rel="tooltip" title="user"></label>
+            <span ng-show="loginForm.username.$error.required">Required</span>
+         </div>
+         <div class="icon-addon addon-md" style="width: 100%;">
+            <input class="form-control" name="search" placeholder="Mật khẩu" autocomplete="off" autofocus="autofocus" type="password" required ng-model="user.password">
+            <label for="pass" class="fa fa-eye" rel="tooltip" title="pass"></label>
+            <span ng-show="loginForm.password.$error.required">Required</span>
+         </div>
+         <div class="row" style="text-align: center; padding-bottom:8px; display:none;" id='error-login'><span style="font-weight: bold; color:#C1001E;">{{error_login}}</span></div>
+         <span class="clearfix"></span>
+         <div class="social-box">
+            <div class="row mg-btm">
+               <div class="col-md-12">
+                  <a href="javascript: void(0);" class="btn btn-success btn-block font-btn" ng-click="login(user);">
+                  <i class="icon-facebook"></i>Đăng nhập
+                  </a>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                  <a href="#" class="btn btn-primary btn-block font-btn" id="loginBtn">
+                  <i class="fa fa-facebook"></i>Facebook
+                  </a>
+               </div>
+               <div class="col-md-6">
+                  <a href="#" class="btn btn-danger btn-block font-btn" onclick="login_gg();">
+                  <i class="fa fa-google-plus"></i>Google plus
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="login-footer">
+         <div class="row">
+            <div class="col-xs-6 col-md-6">
+               <div class="lf-rigt-section">
+                  <a href="">Đăng ký tài khoản</a>
+               </div>
+            </div>
+            <div class="col-xs-6 col-md-6">
+               <div class="lf-rigt-section pull-right">
+                  <a href="">Quên mật khẩu? </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </form>
+</div>

@@ -1,0 +1,22 @@
+{
+  "name": "ckeditor-angularjs",
+  "main": "ckeditor-angularjs.js",
+  "dependencies": {
+    "angular": "*",
+    "jquery": "~2.0.3",
+    "ckeditor": "~4",
+    "angular-sanitize": "*",
+    "ckeditor-angularjs": "*"
+  },
+  "homepage": "https://github.com/shinigami35/ckeditor-angularjs",
+  "_release": "9a230d5142",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "9a230d5142217267eb520dcb1b4f7d56cbef3c8d"
+  },
+  "_source": "git://github.com/shinigami35/ckeditor-angularjs.git",
+  "_target": "*",
+  "_originalSource": "ckeditor-angularjs",
+  "_direct": true
+}
